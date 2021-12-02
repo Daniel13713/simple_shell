@@ -13,8 +13,10 @@ void infinite_loop(void)
 	int status;
 
 	do {
-
-		write(STDOUT_FILENO, "$ ", 2);
+		if (isatty(STDIN_FILENO) == 1)
+		{
+			write(STDOUT_FILENO, "$ ", 2);
+		}
 		line = reader();
 		args = tokennizer(line);
 		status = executer(args);

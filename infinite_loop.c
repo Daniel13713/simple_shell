@@ -10,7 +10,7 @@ void infinite_loop(void)
 {
 	char *line = NULL;
 	char **args;
-	int status;
+	int status = 1;
 
 	do {
 		if (isatty(STDIN_FILENO) == 1)
@@ -19,9 +19,10 @@ void infinite_loop(void)
 		}
 		line = reader();
 		args = tokennizer(line);
-		status = executer(args);
+		/*status = executer(args);*/
 
 		free(line);
 		free(args);
 	} while (status);
+
 }

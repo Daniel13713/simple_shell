@@ -8,19 +8,22 @@
 char *reader(void)
 {
 	char *line;
-	ssize_t size = 0, readsize;
+	size_t size = 0;
+	ssize_t readsize;
 
-	readsize = getline(&line, &size, stdin);
 
-	if (readsize == -1)
+	if ((readsize = getline(&line, &size, stdin)) == -1)
 	{
 		if (readsize == EOF)
 		{
+			free(line);
 			exit(EXIT_SUCCESS);
 		}
 		else
 		{
+			free(line);
 			perror("Could not read input");
+			exit(EXIT_FAILURE);
 		}
 	}
 	return (line);

@@ -85,3 +85,35 @@ char *_strcat(char *dest, char *src)
 	}
 	return (dest);
 }
+
+/**
+ * _strdup - duplicate a string with malloc
+ *
+ * @str: string to duplicate
+ * Return: Pointer to string
+ */
+
+char *_strdup(char *str)
+{
+	char *copy;
+	int size_str, i = 0;
+
+	if (str == NULL)
+	{
+		return (0);
+	}
+
+	size_str = _strlen(str);
+	copy = malloc(size_str + 1 * sizeof(char));
+	if (copy == NULL)
+	{
+		return (0);
+	}
+
+	while (str[i] != '\0')
+	{
+		copy[i] = str[i];
+		i++;
+	}
+	return (copy);
+}

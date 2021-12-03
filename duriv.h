@@ -29,6 +29,19 @@ typedef struct my_builtins
 	int (*f)(char **arg);
 } my_builtins;
 
+/**
+ * struct p_list - struct linked list
+ * @name: name of environment variable
+ * @value: value
+ * @next: points to the nect node
+ */
+typedef struct p_list
+{
+	char *name;
+	char *value;
+	struct p_list *next;
+} p_list;
+
 
 /* Prototypes */
 void infinite_loop(void);
@@ -52,11 +65,20 @@ static const my_builtins builtins[] = {
 	{"history", _history}*/
 	{NULL, NULL}};
 
+
+
 /* Help Funtions */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
+char *_strdup(char *str);
+/*linked list*/
+char *_getenv(char *name);
+unsigned int list_len(const p_list *h);
+p_list *get_node_at_index(p_list *head, unsigned int index);
+void free_list(p_list **head);
+p_list *add_node_end(p_list **head, char const *name, char const *value);
 
 #endif

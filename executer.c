@@ -23,5 +23,5 @@ int executer(char **args)
 			return (builtins[counter].f(args));
 		}
 	}
-	return (10);
+	return (no_builtin(args));
 }

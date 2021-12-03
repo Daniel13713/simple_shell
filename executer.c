@@ -16,12 +16,12 @@ int executer(char **args)
 	{
 		return (1);
 	}
-	for (; counter < len_builtins(); counter++)
+	for (; builtins[counter].command; counter++)
 	{
-		if (_strcmp(args[0], builtin_list[counter]) == 0)
+		if (*args[0] == *builtins[counter].command)
 		{
-			return ((*builtin_exc[i])(arg));
+			return (builtins[counter].f(args));
 		}
 	}
-	return (no_builtin(args));
+	return (10);
 }

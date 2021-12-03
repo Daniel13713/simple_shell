@@ -19,7 +19,7 @@ void infinite_loop(void)
 		}
 		line = reader();
 		args = tokennizer(line);
-		/*status = executer(args);*/
+		status = executer(args);
 
 		free(line);
 		free(args);

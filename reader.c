@@ -7,24 +7,28 @@
   */
 char *reader(void)
 {
-	char *line;
+	char *line = NULL;
 	size_t size = 0;
-	ssize_t readsize;
+	int readsize = 0;
 
-
-	if ((readsize = getline(&line, &size, stdin)) == -1)
+	readsize = getline(&line, &size, stdin);
+	if (readsize == -1)
 	{
 		if (readsize == EOF)
 		{
+			size = 0;
 			free(line);
 			exit(EXIT_SUCCESS);
 		}
 		else
 		{
+			size = 0;
 			free(line);
 			perror("Could not read input");
 			exit(EXIT_FAILURE);
 		}
 	}
+	readsize = 0;
+	size = 0;
 	return (line);
 }

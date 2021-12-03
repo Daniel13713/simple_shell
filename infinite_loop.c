@@ -9,7 +9,7 @@
 void infinite_loop(void)
 {
 	char *line = NULL;
-	char **args;
+	char **args = NULL;
 	int status = 1;
 
 	do {

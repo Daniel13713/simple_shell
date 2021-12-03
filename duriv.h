@@ -1,7 +1,7 @@
 #ifndef _DURIV_H_
 #define _DURIV_H_
 
-/*Global variables*/
+/* Global variables */
 #define GLOBAL_BUFSIZE 64
 #define GLOBAL_DELIMITERS " \t\n"
 
@@ -20,8 +20,12 @@ void infinite_loop(void);
 char *reader(void);
 char **tokennizer(char *line);
 int executer(char **args);
+int len_builtins(void);
+int (*builtin_exc[])(char **arg);
+int no_builtin(char **arg);
 
-
-/*Help Funtions*/
+/* Help Funtions */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+int _strcmp(char *s1, char *s2);
+
 #endif

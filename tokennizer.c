@@ -11,8 +11,8 @@
 char **tokennizer(char *line)
 {
 	int buff = GLOBAL_BUFSIZE, oldbuff = 0, pos = 0;
-	char **tokens;
-	char *token;
+	char **tokens = NULL;
+	char *token = NULL;
 
 	tokens = malloc(buff * sizeof(char *));
 	if (!tokens)

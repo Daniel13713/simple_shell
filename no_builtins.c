@@ -11,41 +11,29 @@ int no_builtin(char **arg)
 	struct stat st;
 	char *envp[] = {NULL};
 	pid_t pid = 0;
-	int fail_exc = 0, wait_child, dirs = 0, i = 0;
-	char *path = NULL, *delimiter = ":"; /* *path_token = NULL;*/
+	int fail_exc = 0, wait_child; /*dirs = 0, i = 0;*/
+	char *path = NULL; /* *delimiter = ":";  *path_token = NULL;*/
+	char *messageFile = NULL;
 
 	if (stat(arg[0], &st) != 0)
 	{
-		path = malloc(GLOBAL_BUFSIZE * sizeof(char));
-		if(!path)
+		path = _which(arg);
+		if (!path)
 		{
-			free(arg);
+			messageFile = "./hsh: No such file or directory (NO ES ASÍ)";
+			printf("%s\n", messageFile);
+			return (1);
+		}
+
+		arg[0] = path;
+		/*arg[0] = malloc(_strlen(path) * sizeof(char));
+		if (arg[0] == NULL)
+		{
+			free(arg[0]);
 			free(path);
-			printf("failed to alloc for path");
 			exit(EXIT_FAILURE);
 		}
-		path = _getenv("PATH");
-		printf("%s\n", path);
-		while (path[i])
-		{
-			if(path[i] == *delimiter)
-			{
-				dirs++;
-			}
-			i++;
-		}
-		i = 0;
-		printf("n = %d\n", dirs);
-		free(path);
-
-		/*path_token = strtok(path, delimiter);
-		while (path_token)
-		{
-			_strcpy()
-		}
-
-		printf("Arg[0] doesn't exist, concat arg[0] w/ PATH\n")*/;
-		return (1);
+		_strcpy(arg[0], path);*/
 	}
 
 	pid = fork();
@@ -66,6 +54,7 @@ int no_builtin(char **arg)
 	else
 	{
 		wait(&wait_child);
+		free(path);
 	}
 	return (1);
 }

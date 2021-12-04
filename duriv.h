@@ -74,8 +74,9 @@ char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
+char *_which(char **command);
 /*linked list*/
-char *_getenv(char *name);
+char *_getenv(const char *name);
 unsigned int list_len(const p_list *h);
 p_list *get_node_at_index(p_list *head, unsigned int index);
 void free_list(p_list **head);

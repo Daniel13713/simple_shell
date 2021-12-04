@@ -18,7 +18,7 @@ void infinite_loop(void)
 			write(STDOUT_FILENO, "$ ", 2);
 		}
 		line = reader();
-		args = tokennizer(line);
+		args = tokennizer(line);	
 		status = executer(args);
 
 		free(line);

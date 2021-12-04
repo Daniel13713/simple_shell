@@ -14,15 +14,16 @@ int no_builtin(char **arg)
 	int fail_exc = 0, wait_child, dirs = 0, i = 0;
 	char *path = NULL, *delimiter = ":"; /* *path_token = NULL;*/
 
-	path = malloc(GLOBAL_BUFSIZE * sizeof(char));
-	if(!path)
-	{
-		free(arg);
-		free(path);
-		exit(EXIT_FAILURE);
-	}
 	if (stat(arg[0], &st) != 0)
 	{
+		path = malloc(GLOBAL_BUFSIZE * sizeof(char));
+		if(!path)
+		{
+			free(arg);
+			free(path);
+			printf("failed to alloc for path");
+			exit(EXIT_FAILURE);
+		}
 		path = _getenv("PATH");
 		printf("%s\n", path);
 		while (path[i])

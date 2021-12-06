@@ -16,6 +16,7 @@ char *reader(void)
 	{
 		if (readsize == EOF)
 		{
+			write(STDOUT_FILENO, "\n", 1);
 			size = 0;
 			free(line);
 			exit(EXIT_SUCCESS);

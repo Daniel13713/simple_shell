@@ -16,6 +16,8 @@
 #include <unistd.h>
 #include <string.h>
 
+extern char **environ;
+
 /*Structs*/
 
 /**
@@ -44,7 +46,7 @@ typedef struct p_list
 
 
 /* Prototypes */
-void infinite_loop(void);
+void infinite_loop(char *input);
 char *reader(void);
 char **tokennizer(char *line);
 int executer(char **args);
@@ -52,13 +54,14 @@ int no_builtin(char **arg);
 
 /*Builtin funtions*/
 int dr_exit(char **arg);
+int _env(char **args);
 
 /*Builtins list*/
 static const my_builtins builtins[] = {
 	{"exit", dr_exit},
+	{"env", _env},
 	/*{"cd", _cd},
 	{"help", _help},
-	{"env", _env},
 	{"setenv", _setenv},
 	{"unsetenv", _unsetenv},
 	{"alias", _alias},
@@ -75,11 +78,6 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
 char *_which(char **command);
-/*linked list*/
-char *_getenv(const char *name);
-unsigned int list_len(const p_list *h);
-p_list *get_node_at_index(p_list *head, unsigned int index);
-void free_list(p_list **head);
-p_list *add_node_end(p_list **head, char const *name, char const *value);
+char *_getenv(char *name);
 
 #endif

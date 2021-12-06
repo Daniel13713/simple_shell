@@ -18,7 +18,7 @@ int executer(char **args)
 	}
 	for (; builtins[counter].command; counter++)
 	{
-		if (*args[0] == *builtins[counter].command)
+		if (_strcmp(args[0], builtins[counter].command) == 0)
 		{
 			return (builtins[counter].f(args));
 		}

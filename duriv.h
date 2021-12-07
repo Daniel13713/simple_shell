@@ -79,5 +79,7 @@ char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
 char *_which(char **command);
 char *_getenv(char *name);
+void rev_string(char *s);
+char *_itoa(int num, char *str, int base);
 
 #endif

@@ -11,7 +11,7 @@ int no_builtin(char **arg)
 	struct stat st;
 	pid_t pid = 0;
 	int fail_exc = 0, wait_child;
-	char *path = NULL, *envp[] = {NULL};
+	char *path = NULL;
 
 	if (stat(arg[0], &st) != 0)
 	{
@@ -26,15 +26,15 @@ int no_builtin(char **arg)
 	pid = fork();
 	if (pid == -1)
 	{
-		printf("fork failed\n");
+		perror("fork failed\n");
 		return (1);
 	}
 	else if (pid == 0)
 	{
-		fail_exc = execve(arg[0], arg, envp);
+		fail_exc = execve(arg[0], arg, environ);
 		if (fail_exc < 0)
 		{
-			printf("could not execute %s.\n", arg[0]);
+			perror("could not execute %s.\n", arg[0]);
 			return (1);
 		}
 	}

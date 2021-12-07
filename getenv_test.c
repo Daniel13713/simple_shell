@@ -22,7 +22,7 @@ char *_getenv(char *name)
 					glovar = malloc(_strlen(environ[var]) * sizeof(char) + 1);
 					if (!glovar)
 					{
-						printf("failed to allocate");
+						perror("failed to allocate");
 						exit(EXIT_FAILURE);
 					}
 					for (val = 0, arg = arg + 2; environ[var][arg] != '\0'; arg++, val++)

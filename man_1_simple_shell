@@ -1,0 +1,48 @@
+.\" Manpage for Simple Shell.
+.TH Simple Shell (1) "07 Dec 2021" "man_1_simple_shell man page"
+
+.SH NAME
+.B Simple Shell 
+.SH SYNOPSIS
+.B #include "duriv.h"
+.TP
+.B ./hsh (Execute)
+.SH DESCRIPTION
+Emulate The Unix Shell behavior, in specific the Bourne Shell (sh), using C program language in two modes:
+.TP
+.B Interactive Mode
+.TP
+The shell takes the commands from the standard input with getline, executes them and read another command-line. Display anothe line
+.TP
+.B 
+			Use ./hsh
+.TP
+.B Non-interactive Mode
+.TP
+This mode reads the commands from a file sent through a pipe, the commands will be executed and don't display another line.
+.TP
+.B 
+			Use echo "ls" | ./hsh
+.SH FLAGS OR OPTIONS
+This Simple Shell does not has flags to execute
+.SH EXIT
+To exit of the simple shell there are two mean forms, with the built-in command \fBexit\fR or with the signal \fBCtrl+D\fR.
+The exit status in both cases is 0
+.SH BUILT-IN COMMANDS
+.B exit
+.TP
+	Exit of the shell with status 0
+.TP
+.B env
+.TP
+	Display all the enviroments variables
+.SH SEE ALSO
+sh(1)
+.SH BUGS
+No known bugs.
+.SH AUTHORS
+Felipe Rivas, fe.rivasb@gmail.com
+.TP
+Daniel Duarte, danydu1299@gmail.com
+
+

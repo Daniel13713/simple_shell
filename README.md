@@ -20,7 +20,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ## Usage
 
 ### Interactive mode
-
+The shell takes the commands from the STANDARD INPUT with getline function, execute them and is ready to read a new line. 
 ```bash
 $ ./hsh
 ($) /bin/ls
@@ -30,7 +30,7 @@ hsh main.c shell.c
 $
 ```
 ### No-Interactive mode
-
+In this mode, the shell does not display another line but it read the comand passed through a pipeline with echo command
 ```bash
 $ echo "ls" | ./hsh
 auxfuncs.c  _getenv.c         main.c         _realloc.c 
@@ -60,7 +60,7 @@ To see the *man page* of our **shell** use:
 man ./man_1_simple_shell
 ```
 ## Flowchart 
-
+The logic of the program is show here
 ## Authors
 - [Felipe Rivas](https://github.com/ferivb)
 - [Daniel Duarte](https://github.com/Daniel13713)

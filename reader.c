@@ -17,7 +17,10 @@ char *reader(void)
 		if (readsize == EOF)
 		{
 			/*printf("inEOF\n");*/
-			write(STDOUT_FILENO, "\n", 1);
+			if (isatty(STDIN_FILENO) == 1)
+			{
+				write(STDOUT_FILENO, "\n", 1);
+			}
 			size = 0;
 			free(line);
 			exit(EXIT_SUCCESS);

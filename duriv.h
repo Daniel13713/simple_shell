@@ -55,13 +55,14 @@ int no_builtin(char **arg);
 /*Builtin funtions*/
 int dr_exit(char **arg);
 int _env(char **args);
+int _cd(char **args);
 
 /*Builtins list*/
 static const my_builtins builtins[] = {
 	{"exit", dr_exit},
 	{"env", _env},
+	{"cd", _cd},
 	/**
-	  *{"cd", _cd},
 	  *{"help", _help},
 	  *{"setenv", _setenv},
 	  *{"unsetenv", _unsetenv},

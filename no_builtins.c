@@ -34,7 +34,7 @@ int no_builtin(char **arg)
 		fail_exc = execve(arg[0], arg, environ);
 		if (fail_exc < 0)
 		{
-			perror("could not execute %s.\n", arg[0]);
+			perror("could not execute command.");
 			return (1);
 		}
 	}

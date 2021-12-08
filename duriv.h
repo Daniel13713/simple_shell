@@ -60,12 +60,14 @@ int _env(char **args);
 static const my_builtins builtins[] = {
 	{"exit", dr_exit},
 	{"env", _env},
-	/*{"cd", _cd},
-	{"help", _help},
-	{"setenv", _setenv},
-	{"unsetenv", _unsetenv},
-	{"alias", _alias},
-	{"history", _history}*/
+	/**
+	  *{"cd", _cd},
+	  *{"help", _help},
+	  *{"setenv", _setenv},
+	  *{"unsetenv", _unsetenv},
+	  *{"alias", _alias},
+	  *{"history", _history}
+	  */
 	{NULL, NULL}};
 
 

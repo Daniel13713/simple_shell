@@ -16,11 +16,11 @@ int no_builtin(char **arg)
 	if (stat(arg[0], &st) != 0)
 	{
 		path = _which(arg);
-		if (!path)
+		if (!path || *arg[0] == '/')
 		{
+			free(path);
 			return (2);
 		}
-
 		arg[0] = path;
 	}
 	pid = fork();

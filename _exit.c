@@ -6,7 +6,11 @@
  * Return: Always 0
  */
 
-int dr_exit(char __attribute__((unused)) **arg)
+int dr_exit(char **arg)
 {
-	return (0);
+	if (!arg[1])
+	{
+		return (0);
+	}
+	return (4);
 }

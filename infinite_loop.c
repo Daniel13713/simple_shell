@@ -11,8 +11,9 @@
  */
 void errors(int status, char *input, char **args, int iterations)
 {
-	char *NoCommand = ": not found\n";
+	char *noCommand = ": not found\n";
 	char *noCd = ": cd: can't cd to ";
+	char *noExit = ": exit: Illegal number: ";
 	char string[1024];
 
 	_itoa(iterations, string, 10);
@@ -23,7 +24,7 @@ void errors(int status, char *input, char **args, int iterations)
 		write(STDOUT_FILENO, string, _strlen(string));
 		write(STDOUT_FILENO, ": ", 2);
 		write(STDOUT_FILENO, args[0], _strlen(args[0]));
-		write(STDOUT_FILENO, NoCommand, _strlen(NoCommand));
+		write(STDOUT_FILENO, noCommand, _strlen(noCommand));
 	}
 	else if (status == 3)
 	{
@@ -31,6 +32,15 @@ void errors(int status, char *input, char **args, int iterations)
 		write(STDOUT_FILENO, ": ", 2);
 		write(STDOUT_FILENO, string, _strlen(string));
 		write(STDOUT_FILENO, noCd, _strlen(noCd));
+		write(STDOUT_FILENO, args[1], _strlen(args[1]));
+		write(STDOUT_FILENO, "\n", 1);
+	}
+	else if (status == 4)
+	{
+		write(STDOUT_FILENO, input, _strlen(input));
+		write(STDOUT_FILENO, ": ", 2);
+		write(STDOUT_FILENO, string, _strlen(string));
+		write(STDOUT_FILENO, noExit, _strlen(noExit));
 		write(STDOUT_FILENO, args[1], _strlen(args[1]));
 		write(STDOUT_FILENO, "\n", 1);
 	}

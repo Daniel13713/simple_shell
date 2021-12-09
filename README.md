@@ -62,7 +62,7 @@ man ./man_1_simple_shell
 ## Flowchart 
 The logic of the program is show here
 
-[Image]()
+[Image](https://github.com/Daniel13713/simple_shell/blob/master/Simple%20shell%20attempt%201.drawio.png)
 
 ## Authors
 - [Felipe Rivas](https://github.com/ferivb)
